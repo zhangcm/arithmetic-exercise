@@ -1,7 +1,4 @@
-package com.study.sort;
-
-import static com.study.sort.SortHelper.less;
-import static com.study.sort.SortHelper.swap;
+package arithmetic.exercise.sort;
 
 /**
  * 快速排序
@@ -19,16 +16,16 @@ public class QuickSort<T extends Comparable<T>> {
         T base = arr[low];
         int i = low;
         for (int j = high; j > i; j--) {
-            if (less(arr[j], base)) {
+            if (SortHelper.less(arr[j], base)) {
                 for (i = i + 1; i < j; i++) {
-                    if (less(base, arr[i])) {
-                        swap(arr, i, j);
+                    if (SortHelper.less(base, arr[i])) {
+                        SortHelper.swap(arr, i, j);
                         break;
                     }
                 }
             }
         }
-        swap(arr, low, i);
+        SortHelper.swap(arr, low, i);
         sort(arr, low, i - 1);
         sort(arr, i + 1, high);
     }

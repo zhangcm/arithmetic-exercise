@@ -1,5 +1,6 @@
 package com.study.sort;
 
+import arithmetic.exercise.sort.QuickSort;
 import org.junit.Assert;
 import org.junit.Test;
 

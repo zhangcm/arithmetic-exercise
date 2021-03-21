@@ -1,4 +1,4 @@
-package com.study.sort;
+package arithmetic.exercise.sort;
 
 import java.util.Random;
 

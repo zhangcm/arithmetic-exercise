@@ -19,6 +19,16 @@ public class StockTradingV1 {
     }
 
     private static int solution2(int[] nums) {
+        int maxProfit = 0;
+        int min = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            maxProfit = Math.max(maxProfit, nums[i] - min);
+            min = Math.min(min, nums[i]);
+        }
+        return maxProfit;
+    }
+
+    private static int solution3(int[] nums) {
         int profit = 0;
         for (int i = 0; i < nums.length - 1; i++) {
             int max = 0;

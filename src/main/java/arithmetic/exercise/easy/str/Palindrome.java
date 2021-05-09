@@ -27,4 +27,23 @@ public class Palindrome {
         return true;
     }
 
+    private static boolean solution1(String s) {
+        StringBuilder sb = new StringBuilder();
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+            char ch = s.charAt(i);
+            if (Character.isLetterOrDigit(ch)) {
+                sb.append(ch);
+            }
+        }
+        StringBuilder reverse = new StringBuilder(sb).reverse();
+        return reverse.toString().equals(sb.toString());
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution1("aba"));
+        System.out.println(solution1("ab"));
+        System.out.println(solution1("a"));
+    }
+
 }

@@ -1,6 +1,11 @@
 package arithmetic.exercise.medium.list;
 
+import static arithmetic.exercise.common.ListNodeUtils.build;
+import static arithmetic.exercise.common.ListNodeUtils.println;
+
+
 import arithmetic.exercise.common.ListNode;
+import arithmetic.exercise.common.ListNodeUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,39 +47,22 @@ public class TwoListSum {
         ListNode n2 = build(new int[] {5, 6, 4});
 
         ListNode result = solution(n1, n2);
-        print(result);
+        println(result);
 
         n1 = build(new int[] {0});
         n2 = build(new int[] {0});
 
         result = solution(n1, n2);
-        print(result);
+        println(result);
 
         n1 = build(new int[] {9, 9, 9, 9, 9, 9, 9});
         n2 = build(new int[] {9, 9, 9, 9});
 
         result = solution(n1, n2);
-        print(result);
+        println(result);
 
     }
 
-    private static ListNode build(int[] nums) {
-        ListNode node = new ListNode(nums[0]);
-        ListNode cur = node;
-        for (int i = 1; i < nums.length; i++) {
-            cur.next = new ListNode(nums[i]);
-            cur = cur.next;
-        }
-        return node;
-    }
 
-    private static void print(ListNode node) {
-        List<Integer> list = new ArrayList<>();
-        while (node != null) {
-            list.add(node.val);
-            node = node.next;
-        }
-        System.out.println(list.toString());
-    }
 
 }

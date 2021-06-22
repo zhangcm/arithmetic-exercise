@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ListNodeUtils {
+public final class ListNodeUtils {
+
+    private ListNodeUtils() {
+        throw new UnsupportedOperationException();
+    }
 
     public static ListNode build(int[] nums) {
         if (Objects.isNull(nums) || nums.length == 0) {

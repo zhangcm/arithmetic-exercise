@@ -5,26 +5,23 @@ import static arithmetic.exercise.common.ListNodeUtils.println;
 
 
 import arithmetic.exercise.common.ListNode;
-import arithmetic.exercise.common.ListNodeUtils;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TwoListSum {
 
-    private static ListNode solution(ListNode n1, ListNode n2) {
+    private static ListNode solution(ListNode l1, ListNode l2) {
         ListNode sum = new ListNode(0);
         ListNode cur = sum;
         boolean carryFlag = false;
-        while (n1 != null || n2 != null) {
+        while (l1 != null || l2 != null) {
             int num1 = 0;
             int num2 = 0;
-            if (n1 != null) {
-                num1 = n1.val;
-                n1 = n1.next;
+            if (l1 != null) {
+                num1 = l1.val;
+                l1 = l1.next;
             }
-            if (n2 != null) {
-                num2 = n2.val;
-                n2 = n2.next;
+            if (l2 != null) {
+                num2 = l2.val;
+                l2 = l2.next;
             }
             int result = num1 + num2 + (carryFlag ? 1 : 0) ;
             if (result >= 10) {
@@ -43,24 +40,9 @@ public class TwoListSum {
     }
 
     public static void main(String[] args) {
-        ListNode n1 = build(new int[] {2, 4, 3});
-        ListNode n2 = build(new int[] {5, 6, 4});
-
-        ListNode result = solution(n1, n2);
-        println(result);
-
-        n1 = build(new int[] {0});
-        n2 = build(new int[] {0});
-
-        result = solution(n1, n2);
-        println(result);
-
-        n1 = build(new int[] {9, 9, 9, 9, 9, 9, 9});
-        n2 = build(new int[] {9, 9, 9, 9});
-
-        result = solution(n1, n2);
-        println(result);
-
+        println(solution(build(new int[] {2, 4, 3}), build(new int[] {5, 6, 4})));
+        println(solution(build(new int[] {0}), build(new int[] {0})));
+        println(solution(build(new int[] {9, 9, 9, 9, 9, 9, 9}), build(new int[] {9, 9, 9, 9})));
     }
 
 

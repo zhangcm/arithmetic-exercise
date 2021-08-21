@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class LetterCombination {
 
-    private static char[][] map = new char[][] {
+    private static final char[][] map = new char[][] {
         {'a', 'b', 'c'},
         {'d', 'e', 'f'},
         {'g', 'h', 'i'},
@@ -47,11 +47,11 @@ public class LetterCombination {
             return Collections.emptyList();
         }
         List<String> combinations = new ArrayList<>();
-        backtrack(combinations, map, digits, 0, new StringBuilder());
+        backtrack(combinations, digits, 0, new StringBuilder());
         return combinations;
     }
 
-    private static void backtrack(List<String> combinations, char[][] map, String digits, int index, StringBuilder strb) {
+    private static void backtrack(List<String> combinations, String digits, int index, StringBuilder strb) {
         int length = digits.length();
         if (index == length) {
             combinations.add(strb.toString());
@@ -60,7 +60,7 @@ public class LetterCombination {
         char[] arr = map[digits.charAt(index) - '2'];
         for (char c : arr) {
             strb.append(c);
-            backtrack(combinations, map, digits, index + 1, strb);
+            backtrack(combinations, digits, index + 1, strb);
             strb.deleteCharAt(index);
         }
     }

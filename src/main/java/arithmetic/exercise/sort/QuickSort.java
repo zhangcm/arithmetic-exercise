@@ -1,5 +1,7 @@
 package arithmetic.exercise.sort;
 
+import arithmetic.exercise.common.SortHelper;
+
 /**
  * 快速排序
  */

@@ -1,4 +1,4 @@
-package arithmetic.exercise.sort;
+package arithmetic.exercise.common;
 
 import java.util.Random;
 
@@ -21,6 +21,12 @@ public class SortHelper {
 
     public static <T extends Comparable<T>> void swap(T[] arr, int i, int j) {
         T temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }

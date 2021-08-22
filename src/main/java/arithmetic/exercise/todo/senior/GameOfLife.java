@@ -41,4 +41,8 @@ package arithmetic.exercise.todo.senior;
  *
  */
 public class GameOfLife {
+
+    private static void solution(int[][] board) {
+
+    }
 }

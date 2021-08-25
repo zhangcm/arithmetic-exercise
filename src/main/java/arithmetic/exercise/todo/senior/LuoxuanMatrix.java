@@ -12,4 +12,7 @@ package arithmetic.exercise.todo.senior;
  */
 public class LuoxuanMatrix {
 
+    private static int[] luoxunMatrix(int[][] matrix) {
+        return new int[0];
+    }
 }

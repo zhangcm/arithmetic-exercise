@@ -10,4 +10,11 @@ public class ListNode {
         this.val = x;
     }
 
+    public int getVal() {
+        return val;
+    }
+
+    public ListNode getNext() {
+        return next;
+    }
 }

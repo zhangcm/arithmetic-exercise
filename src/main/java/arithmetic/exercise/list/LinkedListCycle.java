@@ -7,7 +7,20 @@ import arithmetic.exercise.common.ListNode;
  */
 public class LinkedListCycle {
 
-    public static boolean hasCycle(ListNode head) {
+    /**
+     * 快慢指针
+     */
+    private static boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (slow != null && fast != null) {
+            slow = slow.next;
+            fast = fast.next == null ? null : fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
         return false;
     }
+
 }

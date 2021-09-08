@@ -1,4 +1,4 @@
-package arithmetic.exercise.tree;
+package arithmetic.exercise.tree.base;
 
 import arithmetic.exercise.common.ListUtils;
 import arithmetic.exercise.common.TreeNode;

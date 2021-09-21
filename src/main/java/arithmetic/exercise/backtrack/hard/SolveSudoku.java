@@ -1,5 +1,6 @@
 package arithmetic.exercise.backtrack.hard;
 
+import arithmetic.exercise.common.ArrayUtils;
 import arithmetic.exercise.common.ListUtils;
 
 /**
@@ -78,7 +79,7 @@ public class SolveSudoku {
     public static void main(String[] args) {
         char[][] board = init();
         solveSudoku(board);
-        ListUtils.println(board);
+        ArrayUtils.println(board);
     }
 
 }

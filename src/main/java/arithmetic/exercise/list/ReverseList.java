@@ -1,7 +1,10 @@
-package arithmetic.exercise.easy.list;
+package arithmetic.exercise.list;
 
 import arithmetic.exercise.common.ListNode;
 
+/**
+ * 206 [easy]
+ */
 public class ReverseList {
 
     private static ListNode solution(ListNode head) {

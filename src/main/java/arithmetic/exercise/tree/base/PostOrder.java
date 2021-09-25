@@ -1,4 +1,4 @@
-package arithmetic.exercise.tree;
+package arithmetic.exercise.tree.base;
 
 import arithmetic.exercise.common.TreeNode;
 import arithmetic.exercise.common.TreeNodeUtils;
@@ -54,6 +54,7 @@ public class PostOrder {
             }
             if (!stack.isEmpty()) {
                 cur = stack.peek();
+                // 因为是后序遍历，右子树为空或右子树已经访问过，才能访问当前节点
                 if (cur.right == null || preVisit == cur.right) {
                     System.out.print(cur.val + " ");
                     stack.pop();

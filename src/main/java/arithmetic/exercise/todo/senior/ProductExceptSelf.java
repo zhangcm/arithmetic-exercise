@@ -1,5 +1,7 @@
 package arithmetic.exercise.todo.senior;
 
+import java.util.Arrays;
+
 /**
  * 除自身以外数组的乘积
  *
@@ -12,8 +14,54 @@ package arithmetic.exercise.todo.senior;
  */
 public class ProductExceptSelf {
 
+    private static int[] solution1(int[] nums) {
+        int length = nums.length;
+        int[] leftMultiResult = new int[length];
+        leftMultiResult[0] = nums[0];
+        int[] rightMultiResult = new int[length];
+        rightMultiResult[length - 1] = nums[length - 1];
+        for (int i = 0; i < length; i++) {
+            if (i != 0) {
+                leftMultiResult[i] = nums[i] * leftMultiResult[i - 1];
+            }
+            if (i != length - 1) {
+                rightMultiResult[length - i - 2] = rightMultiResult[length - i - 1] * nums[length - i - 2];
+            }
+        }
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            if (i == 0) {
+                result[i] = rightMultiResult[i + 1];
+            } else if (i == length - 1) {
+                result[i] = leftMultiResult[i - 1];
+            } else {
+                result[i] = leftMultiResult[i - 1] * rightMultiResult[i + 1];
+            }
+        }
+        return result;
+    }
+
     private static int[] solution(int[] nums) {
-        return new int[0];
+        int length = nums.length;
+        int[] leftMultiResult = new int[length];
+        leftMultiResult[0] = 1;
+        int[] rightMultiResult = new int[length];
+        rightMultiResult[length - 1] = 1;
+        for (int i = 1; i < length; i++) {
+            leftMultiResult[i] = nums[i - 1] * leftMultiResult[i - 1];
+        }
+        for (int i = length - 2; i >= 0; i--) {
+            rightMultiResult[i] = rightMultiResult[i + 1] * nums[i + 1];
+        }
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = leftMultiResult[i] * rightMultiResult[i];
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(solution(new int[] {1, 2, 3, 4})));
     }
 
 }

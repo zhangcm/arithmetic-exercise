@@ -42,7 +42,74 @@ package arithmetic.exercise.todo.senior;
  */
 public class GameOfLife {
 
-    private static void solution(int[][] board) {
+    private static int liveNeighbors(int[][] board, int i, int j, int width, int length) {
+        int result = 0;
+        for (int m = -1; m <= 1; m++) {
+            for (int n = -1; n <= 1; n++) {
+                if (m == 0 && n == 0) {
+                    continue;
+                }
+                int x = i + m;
+                int y = j + n;
+                if (x < 0 || y < 0 || x >= length || y >= width) {
+                    continue;
+                }
+                result += (board[x][y] % 2);
+            }
+        }
+        return result;
+    }
 
+    private static int[][] solution(int[][] board) {
+        int width = board.length;
+        int length = board[0].length;
+        int[][] result = new int[width][length];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < length; j++) {
+                int liveNeighbors = liveNeighbors(board, i, j, length, width);
+                if (board[i][j] == 0 && liveNeighbors == 3) {
+                    result[i][j] = 1;
+                } else if (board[i][j] == 1) {
+                    if (liveNeighbors < 2 || liveNeighbors > 3) {
+                        result[i][j] = 0;
+                    } else {
+                        result[i][j] = 1;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    private static int[][] solution1(int[][] board) {
+        int width = board.length;
+        int length = board[0].length;
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < length; j++) {
+                int liveNeighbors = liveNeighbors(board, i, j, length, width);
+                if (board[i][j] == 1) {
+                    if (liveNeighbors < 2 || liveNeighbors > 3) {
+                        board[i][j] = 3;
+                    }
+                } else if (liveNeighbors == 3) {
+                    board[i][j] = 2;
+                }
+            }
+        }
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < length; j++) {
+                if (board[i][j] == 2) {
+                    board[i][j] = 1;
+                } else if (board[i][j] == 3) {
+                    board[i][j] = 0;
+                }
+            }
+        }
+        return board;
+    }
+
+    public static void main(String[] args) {
+        solution1(new int[][] {{0,1,0},{0,0,1},{1,1,1},{0,0,0}});  // [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
+        solution1(new int[][] {{1, 1}, {1, 0}});  // [[1,1],[1,1]]
     }
 }

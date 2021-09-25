@@ -14,16 +14,16 @@ public final class ListNodeUtils {
         if (Objects.isNull(nums) || nums.length == 0) {
             return null;
         }
-        ListNode node = new ListNode(nums[0]);
+        ListNode head = new ListNode(nums[0]);
         if (nums.length == 1) {
-            return node;
+            return head;
         }
-        ListNode cur = node;
+        ListNode cur = head;
         for (int i = 1; i < nums.length; i++) {
             cur.next = new ListNode(nums[i]);
             cur = cur.next;
         }
-        return node;
+        return head;
     }
 
     public static void println(ListNode node) {

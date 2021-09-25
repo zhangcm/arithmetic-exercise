@@ -1,4 +1,4 @@
-package arithmetic.exercise.todo.binarytree;
+package arithmetic.exercise.tree.medium;
 
 import arithmetic.exercise.common.TreeNode;
 
@@ -19,6 +19,16 @@ import arithmetic.exercise.common.TreeNode;
 public class FlatternBinaryTreeToLinkedList {
 
     private static void flatten(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        flatten(root.left);
+        flatten(root.right);
 
+        TreeNode oldRight = root.right;
+        if (root.left != null) {
+            root.right = root.left;
+        }
+        root.right.right = oldRight;
     }
 }

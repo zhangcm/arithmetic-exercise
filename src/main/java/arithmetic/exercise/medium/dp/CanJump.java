@@ -39,23 +39,21 @@ public class CanJump {
      * 贪心
      */
     private static boolean canJump1(int[] nums) {
-        int far = 1;
-        for (int i = 0; i < nums.length; i++) {
-            int cur = i + nums[i] + 1;
-            if (cur <= far) {
+        int length = nums.length;
+        int far = 0;
+        for (int i = 0; i < length - 1; i++) {
+            int cur = i + nums[i];
+            far = Math.max(cur, far);
+            if (far <= i) {
                 return false;
             }
-            far = cur;
-            if (far >= nums.length) {
-                return true;
-            }
         }
-        return far >= nums.length;
+        return far >= length - 1;
     }
 
     public static void main(String[] args) {
-        System.out.println(solution(new int[] {2, 3, 1, 1, 4}));    // true
-        System.out.println(solution(new int[] {3, 2, 1, 0, 4}));    // false
+        // System.out.println(canJump1(new int[] {2, 3, 1, 1, 4}));    // true
+        System.out.println(canJump1(new int[] {3, 2, 2, 0, 4}));    // false
     }
 
 }

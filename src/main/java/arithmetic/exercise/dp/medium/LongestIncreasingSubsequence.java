@@ -1,5 +1,8 @@
 package arithmetic.exercise.dp.medium;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 300. Longest Increasing Subsequence [medium]
  *
@@ -34,12 +37,27 @@ public class LongestIncreasingSubsequence {
      * TODO 扑克牌解法
      */
     private static int lengthOfLIS1(int[] nums) {
-        return 0;
+        List<Integer> list = new ArrayList<>();
+        for (int num : nums) {
+            int index = -1;
+            for (int i = 0, size = list.size(); i < size; i++) {
+                if (num <= list.get(i)) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index == -1) {
+                list.add(num);
+            } else {
+                list.set(index, num);
+            }
+        }
+        return list.size();
     }
 
     public static void main(String[] args) {
         System.out.println(lengthOfLIS(new int[] {10, 9, 2, 5, 3, 7, 101, 18}));
         System.out.println(lengthOfLIS(new int[] {0, 1, 0, 3, 2, 3}));
-        System.out.println(lengthOfLIS(new int[] {7, 7, 7, 7}));
+        System.out.println(lengthOfLIS1(new int[] {7, 7, 7, 7}));
     }
 }

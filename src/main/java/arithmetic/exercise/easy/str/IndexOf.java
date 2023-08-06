@@ -28,6 +28,13 @@ public class IndexOf {
         return beginIndex;
     }
 
+    /**
+     * TODO KMP算法
+     */
+    private static int solution1(String haystack, String needle) {
+        return 0;
+    }
+
     public static void main(String[] args) {
         System.out.println(solution("hell0", "ll"));
         System.out.println(solution("hello", "lll"));
